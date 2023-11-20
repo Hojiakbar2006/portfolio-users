@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Appbar } from './Components/Appbar/Appbar'
+import "./App.css"
+import { BrowserRouter} from 'react-router-dom'
+import AnimatedRouter from './Components/Appbar/AnimatedRouter'
+import { Config } from './Config/Config'
 
-function App() {
+export function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Appbar/>
+      <AnimatedRouter/>
+      <Config/>
+    </BrowserRouter>
+  )
 }
-
-export default App;
