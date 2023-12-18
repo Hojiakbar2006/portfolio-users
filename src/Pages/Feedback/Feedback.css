@@ -22,7 +22,8 @@
   gap: 30px;
 }
 
-.form > div > input {
+.form > div > input,
+.phone_input {
   border-radius: 10px;
   background: #f6f5f580;
   backdrop-filter: blur(50px);
@@ -30,6 +31,12 @@
   font-size: 28px;
   padding-left: 15px;
   border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 ::-webkit-input-placeholder {

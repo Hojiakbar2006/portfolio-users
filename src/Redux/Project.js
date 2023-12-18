@@ -1,103 +1,31 @@
-import img from "../Assets/Images/project.png";
-export const reProject = (
-  state = [
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-    {
-      id: 1,
-      name: "safari online-shop",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque eos voluptatem eius",
-      img,
-      delay: 0,
-      github:"",
-      demo:""
-    },
-  ],
-  action
-) => {
+export const reProject = (state = [], action) => {
   switch (action.type) {
-    case "PROJECT":
-      return action.paylod;
+    case "PRODUCT":
+      return action.payload;
     default:
       return state;
   }
 };
 
-export const acProject = (paylod) => {
-  // const paylod = [];
-  // data.map((item, index) => {
-  //   paylod.push({
-  //     id: item.id,
-  //     name: item.name,
-  //     text: item.text,
-  //     img: item.img,
-  //     delay: index / 4,
-  //   });
-  //   return null;
-  // });
+export const acProject = (data) => {
+  const paylod = [];
+  data.map((item, index) => {
+    if (item.visible) {
+      paylod.push({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        image: item.image,
+        github_url: item.github_url,
+        demo_url: item.demo_url,
+        delay: index / 5,
+      });
+    }
+    return null;
+  });
+
   return {
-    type: "PROJECT",
-    paylod,
+    type: "PRODUCT",
+    payload: paylod,
   };
 };

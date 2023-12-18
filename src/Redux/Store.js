@@ -4,7 +4,7 @@ import { reProject } from "./Project";
 
 const reducer = combineReducers({
   skils: reSkils,
-  project:reProject
+  project: reProject,
 });
 
 export const Store = configureStore({

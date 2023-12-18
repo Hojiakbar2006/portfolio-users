@@ -7,20 +7,6 @@ import { useSelector } from "react-redux";
 export function Project() {
 const data = useSelector((state) => state.project);
 
-
-  const project = [];
-
-  data.map((item, index) => {
-    project.push({
-      id: item.id,
-      name: item.name,
-      text: item.text,
-      img: item.img,
-      delay: index / 4,
-    });
-    return null;
-  });
-
   return (
     <div id="project">
       <motion.div
@@ -33,7 +19,7 @@ const data = useSelector((state) => state.project);
       </motion.div>
 
       <div className="main">
-        {project.map((item, i) => {
+        {data.map((item, i) => {
           return (
             <motion.div
               className="box"
@@ -46,16 +32,16 @@ const data = useSelector((state) => state.project);
               }}
             >
               <figure className="img-box">
-                <img src={item.img} alt="img" />
+                <img src={item.image} alt="img" />
               </figure>
               <div className="content">
-                <h4>{item.name}</h4>
-                <p>{item.text}</p>
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
                 <div className="btns">
-                  <a className="btn" href="http://" >
+                  <a className="btn" href={item.demo_url} target="blank">
                     Demo
                   </a>
-                  <a className="btn" href="http://" >
+                  <a className="btn" href={item.github_url} target="blank">
                     Github
                   </a>
                 </div>
