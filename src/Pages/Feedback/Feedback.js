@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Feedback.css";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
-export function Feedback() {
+export default function Feedback() {
   const [data, setData] = useState({
     name: "",
     surname: "",
@@ -26,11 +27,27 @@ export function Feedback() {
     axios
       .post("http://127.0.0.1:8000/api/v1/feedbacks/", data)
       .then((res) => {
-        alert(`Your feedback has been sent`);
-        console.log(res.status);
+        toast.success(`Your feedback has been sent ${res.status}`, {
+          position: "bottom-left",
+          hideProgressBar: true,
+          autoClose: 1000,
+        });
+        setData({
+          name: "",
+          surname: "",
+          phone: "",
+          email: "",
+          message: "",
+          data: "",
+        });
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err);
+        toast.error(`${err.message}`,{
+          position: "bottom-left",
+          hideProgressBar: true,
+          autoClose: 1000,
+        });
         console.log(err.response.status);
       });
   };
@@ -52,6 +69,7 @@ export function Feedback() {
             animate={{ y: 0, x: 0, opacity: 1, transition: { duration: 0.5 } }}
             type="text"
             name="name"
+            value={data.name}
             placeholder="Name"
             onChange={handleInputChange}
           />
@@ -65,6 +83,7 @@ export function Feedback() {
             }}
             type="text"
             name="surname"
+            value={data.surname}
             placeholder="Surname"
             onChange={handleInputChange}
           />
@@ -77,6 +96,7 @@ export function Feedback() {
               transition: { duration: 0.5, delay: 0.3 },
             }}
             type="email"
+            value={data.email}
             name="email"
             placeholder="Email"
             onChange={handleInputChange}
@@ -91,6 +111,7 @@ export function Feedback() {
             }}
             type="number"
             name="phone"
+            value={data.phone}
             placeholder="Phone number"
             onChange={handleInputChange}
           />
@@ -103,6 +124,7 @@ export function Feedback() {
             transition: { duration: 0.5, delay: 0.6 },
           }}
           name="message"
+          value={data.message}
           placeholder="Messages"
           onChange={handleInputChange}
         ></motion.textarea>

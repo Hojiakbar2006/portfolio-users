@@ -3,8 +3,8 @@ import "./About.css";
 import icon from "../../Assets/Icon/medal.svg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-export function About() {
+ 
+export default function App(){
   const navigate = useNavigate()
   return (
     <div id="about">

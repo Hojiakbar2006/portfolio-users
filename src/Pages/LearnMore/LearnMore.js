@@ -6,7 +6,7 @@ import instagram from "../../Assets/Icon/instagram 1.svg";
 import telegram from "../../Assets/Icon/telegram 1.svg";
 import github from "../../Assets/Icon/github 1.svg";
 
-export function LearnMore() {
+export default function LearnMore() {
   return (
     <div id="about">
       <motion.div

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 
-export function Project() {
+export default function Project() {
 const data = useSelector((state) => state.project);
 
   return (

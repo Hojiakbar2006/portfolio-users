@@ -7,7 +7,7 @@ import telegram from "../../Assets/Icon/telegram 1.svg";
 import github from "../../Assets/Icon/github 1.svg";
 
 
-export function Home() {
+export default function Home() {
   return (
     <motion.div id="home">
       <figure className="img-card">
